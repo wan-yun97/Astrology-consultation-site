@@ -1,0 +1,184 @@
+.container {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+         /* 設定容器的高度為視口高度 */
+}
+
+.card{
+    /*box-model*/
+    height: 400px;
+    width:450px;
+    display: flex;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    margin: 0 auto;
+    border-radius: 20px;
+  }
+  .flip-card-container {
+    /*box-model*/
+    height:100%;
+    width: 100%;
+    box-sizing: border-box;
+    /*style*/
+    border: rgb(238, 231, 231) solid 2px;
+    border-radius: 20px;
+  }
+  
+  .front1,.front2,.back1,.back2{
+    /*display*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*box-model*/
+    height:100%;
+    width:100%;
+  }
+  .front1{
+    /*style*/
+    font-size: 40px;
+    background-image: url("../img/365eaadab927d3e8fb2ba4932e76de5e_w.jpeg");
+    opacity: 0.5;
+    color: #100e0e;
+    border-radius: 20px;
+  }
+
+  .card-text1 {
+    position: absolute;
+    background: rgb(0, 0, 0);
+    /* Fallback color */
+    background: rgba(0, 0, 0, 0.9);
+    /* Black background with 0.5 opacity */
+    color: rgb(253, 251, 251);
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+ 
+  }
+
+  .card-text2 {
+    position: absolute;
+    background: rgb(0, 0, 0);
+    /* Fallback color */
+    background: rgba(0, 0, 0, 0.8);
+    /* Black background with 0.5 opacity */
+    color: rgb(251, 243, 243);
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  
+  }
+
+  .front2{
+    /*style*/
+    font-size: 40px;
+    background-image: url("../img/塔羅.jpg");
+    opacity: 0.5;
+    color: #dddddd;
+    border-radius: 20px;
+  }
+  
+  .back1{
+    /*style*/
+    background-color: #dac7c7;
+    font-size: 40px;
+    color: #986c6c;
+    border-radius: 20px;
+    
+  }
+
+  .back2{
+    /*style*/
+    background-color: #dac7c7;
+    font-size: 40px;
+    color: #986c6c;
+    border-radius: 20px;
+  }
+
+  /* 修正卡片反面文字溢出問題 */
+.back1, .back2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  word-wrap: break-word; /* 讓長字自動換行 */
+  overflow-wrap: break-word; /* 防止文字超出邊界 */
+  text-align: left;
+  padding: 20px;
+  max-width: 100%; /* 確保內容不會超出卡片範圍 */
+  box-sizing: border-box; /* 設定邊距不會影響總寬度 */
+}
+  /*for flip card*/
+.flip-card-container{
+    /*position*/
+    position: relative;
+     /*flip card*/
+     transform-style: preserve-3d;
+     transition: transform 0.8s;
+     border-radius: 20px;
+  }
+  
+  .front1{
+    /*Position*/
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 20px;
+  }
+
+  .front2{
+    /*Position*/
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 20px;
+  }
+  
+  .back1{
+    /*Position*/
+    position: absolute;
+    transform: rotateY(180deg); 
+    backface-visibility: hidden;
+    border-radius: 20px;
+  }
+
+  .back2{
+    /*Position*/
+    position: absolute;
+    transform: rotateY(180deg); 
+    backface-visibility: hidden;
+    border-radius: 20px;
+  }
+
+
+  .card:hover .flip-card-container{
+    transform: rotateY(180deg);
+  }
+
+
+ 
+
+/* 小於768px時，讓卡片垂直排列 */
+@media (max-width: 768px) {
+  .container {
+      display: block; /* 讓卡片垂直排列 */
+  }
+
+  .card {
+      width: 80%; /* 讓卡片佔滿整個容器寬度 */
+      margin-bottom: 10px; /* 卡片之間的間距 */
+      height: 180px;
+      font-size: 17px;
+      
+  }}
+  /* 小於 635px 時的調整 */
+  /* 調整卡片內文字大小，在小螢幕時自動縮小 */
+/* 調整小螢幕時文字大小和卡片內容的排版 */
+@media (max-width: 635px) {
+  .back1, .back2 {
+      font-size: 20px; /* 減小字體大小 */
+      padding: 10px; /* 減少內邊距，讓內容不會太擠 */
+      max-width: 100%; /* 防止卡片內容超出範圍 */
+  }
+
+  .back1 p, .back2 p {
+      font-size: 20px; /* 文字大小調整 */
+      line-height: 1.4; /* 增加行距，讓文字更清晰 */
+      word-wrap: break-word; /* 讓文字自動換行 */
+  }
+}

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Astrology & Tarot</title>
+    <link rel="icon" href="./img/moon-stars-fill.svg">
+    <link rel="stylesheet" href="./CSS/bootstrap.css">
+
+    <link rel="stylesheet" href="./CSS/navbarStyle.css">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="./CSS/flipcard.css">
+    <link rel="stylesheet" href="./CSS/column card.css">
+    <link rel="stylesheet" href="./CSS/sidenav.css">
+    <!-- flipcard -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        .bg {
+            background-image: url("./img/封面圖2.jpg");
+            position: relative;
+            /* Full height */
+            height: 100%;
+            min-height: 100vh;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: flex-end;
+            /* 讓文字貼到底部 */
+            justify-content: center;
+
+
+
+        }
+
+
+
+        .bg .content {
+            position: absolute;
+            margin-bottom: 0;
+            background: rgb(0, 0, 0);
+            /* Fallback color */
+            background: rgba(211, 158, 158, 0.5);
+            /* Black background with 0.5 opacity */
+            color: #e5e2e2;
+            height: 12%;
+            width: 100%;
+            padding-top: 60px;
+            text-align: right;
+        }
+
+        #search {
+            line-height: 25px;
+            border-radius: 4px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 25px;
+        }
+
+        #search:hover {
+            color: rgb(177, 102, 102);
+            background-color: #ddd;
+
+        }
+
+
+        .text-block-left {
+            position: absolute;
+            top: 120px;
+            left: 70px;
+            /* background: rgb(0, 0, 0);
+            /* Fallback color */
+            /* background: rgba(95, 116, 218, 0.5);
+            Black background with 0.5 opacity */
+            color: rgb(99, 96, 96);
+            padding-top: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 10px;
+            width: 50%;
+            font-size: 25px;
+        }
+
+        .text-block-right {
+            position: absolute;
+            bottom: 120px;
+            right: 0;
+            background: rgba(44, 39, 39, 0.5);
+            /* Fallback color */
+            color: white;
+            padding-top: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+
+            width: 35%;
+            font-size: 25px;
+        }
+
+        /* 當螢幕小於 768px 時 */
+        @media screen and (max-width: 768px) {
+            .text-block-left {
+                display: none;
+                /* 隱藏左側文字區塊 */
+            }
+
+            .text-block-right {
+                width: 100%;
+                /* 讓右側區塊變成全寬橫幅 */
+                text-align: center;
+                /* 置中對齊 */
+                font-size: 24px;
+                /* 讓標題更明顯 */
+            }
+        }
+
+        h2 {
+            color: rgb(139, 89, 89);
+            font-size: 35px;
+
+
+        }
+
+        /* 螢幕小於 768px 時 */
+        @media screen and (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+                /* 改為垂直排列 */
+                text-align: center;
+                /* 讓文字置中 */
+            }
+
+            .about-container img {
+                justify-content: center;
+                margin-left:40px;
+                /* 讓圖片置中並與文字保持間距 */
+            }
+
+            .about-text {
+                text-align: center;
+                margin:50px;
+                /* 讓文字置中 */
+            }
+        }
+
+        #footer {
+            background-color: rgb(231, 173, 98);
+            height: 100%;
+            margin: 0;
+            text-align: right;
+            padding: 20px;
+        }
+
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 30%;
+            width: 30px;
+            height: auto;
+        }
+
+        /* 預約按鈕 */
+
+        .btn {
+            background-color: #a7a698;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            font-size: 35px;
+            margin: 4px 2px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: rgb(231, 186, 79);
+            color: white;
+        }
+
+        /* a:visited{
+            color: #ddd;
+        }
+
+        a:hover{
+            color: beige;
+        } */
+
+
+        #footer {
+            text-align: center;
+            padding: 5px;
+            background-color: #dbbf5b;
+            color: rgb(245, 241, 241);
+            height: 15%;
+        }
+    </style>
+
+</head>
+
+<body style="background-color: rgba(224, 222, 213, 0.756);margin: 0;">
+    <div class="header">
+        <div class="split" href="" style="color: rgb(127, 121, 121);"><i id="moon" class="bi bi-moon-stars-fill"></i>++
+            Astrology & Tarot ++</div>
+        <div class="nav-links">
+            <a href="#aboutMe">關於我</a>
+            <a href="#option">諮詢類別</a>
+            <a href="#operation">服務流程</a>
+            <a href="./小專表單.html" class="active">我想預約</a>
+            <div class="search">
+                <input type="text" placeholder="Search..">
+                <i id="search" class="bi bi-search"></i>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <a href="#" id="side_top"><img src="./img/chevron-double-up.svg" alt="">Top</a>
+        <a href="#aboutMe" id="side_aboutMe">關於我</a>
+        <a href="#option" id="side_option">諮詢類別</a>
+        <a href="#operation" id="side_operation">服務流程</a>
+
+    </div>
+
+
+    <div class="bg">
+
+        <div class="text-block-left">
+
+            <p><em>繁星是座迷宫<br>
+                我常受困在過去<br>
+                在一團星雲中<br>
+                找尋通往你的星座<br>
+                如果給我星圖和你<br>
+                我會選擇你<br>
+                一起迷路<br><br>
+                ▍選自劉倩妏《把夢，裝進行李》</em></p>
+        </div>
+
+        <div class="text-block-right">
+            <h1>Astrology & Tarot ————————</h1><br>
+            <h3>星盤諮詢服務</h3>
+            <p>--有了星圖，迷路也有地圖---</p>
+        </div>
+
+        <!-- <img src="./img/fairy1-去背.png" alt="" id="img_fairy"> -->
+    </div>
+
+
+    <br><br>
+    <div>
+        <h2 id="aboutMe" style="text-align:center; padding-top: 30px;">關於我</h2>
+        <br>
+        <div class="about-container" style="display: flex; align-items: center; justify-content: center; max-width: 80%; margin: auto;">
+            <!-- 左側圖片 -->
+            <img src="./img/螢幕擷取畫面 2025-03-24 113427.png"
+                style="width: 50%; max-width: 400px; height: auto; margin-right: 40px;" alt="Profile Picture">
+
+            <!-- 右側文字 -->
+            <div class="about-text" style="flex-grow: 1; text-align: left; font-size:larger;">
+                <div>哈囉！我是 Winnie，從大學開始接觸西洋占星與塔羅，從此深深被浩瀚的占星體系吸引。
+                    大學畢業後進入國立暨南大學諮商研究所就讀，嘗試將星盤諮詢與諮商技巧結合，以星盤為基礎，
+                    希望能幫助來談的人們了解自己的優勢與脆弱，如其所是接納自己並活出自我！</div>
+                <br>
+                <div>在天成象，在地成形，每個人的星盤，就像在你出生那個時刻與地點，在地球上對着宇宙拍下的
+                    一张行星運行的照片，定格了那個瞬間太陽系行星運行的軌跡，這張圖其實也象徵著每個人的生命軌跡。
+                    通過本命星盤解讀，可以讓您更了解自己的性格特點，原生家庭的影響；
+                    還可以幫助您更理解自己的天赋，以及人生主题與人生格局，邀請您與我一起踏上這趟自我探索之旅！</div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <br><br><br>
+        <h2 id="option" class="d-flex justify-content-center" style="padding-top:100px">
+            諮詢類別
+        </h2>
+        <br><br>
+        <div class="container">
+            <div class="card"> <!--卡片最外層-->
+                <div class="flip-card-container"><!--包裝卡片正反面的容器-->
+                    <div class="front1"><!--卡片正面-->
+                        <div class="card-text1">
+                            星盤諮詢
+                        </div>
+                    </div>
+                    <div class="back1" style="display: flex;justify-content: center;"><!--卡片反面-->
+                        <div style="text-align: center; padding: 20px; font-size: 35px;">
+                            <p style="margin-bottom: 20px;">【服務收費】</p>
+                            <p >每節諮詢90分/300元<br>每節諮詢120分/500元</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card"> <!--卡片最外層-->
+                <div class="flip-card-container"><!--包裝卡片正反面的容器-->
+                    <div class="front2">
+                        <div class="card-text2"><!--卡片正面-->
+                            塔羅諮詢
+                        </div>
+                    </div>
+                    <div class="back2" style="display: flex;justify-content: center;"><!--卡片反面-->
+                        <div style="text-align: center; padding: 20px; font-size: 35px;">
+                            <p style="margin-bottom: 20px;">【服務收費】</p>
+                            <p >每個問題150元<br>每節諮詢20至40分鐘</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br><br><br><br><br><br><br><br>
+
+
+    <div>
+        <h2 id="operation" style="text-align:center;padding: top 50px; ">服務流程</h2>
+
+        <p style="text-align:center;font-weight: 500;font-size: 18px;">
+            YOUR SECRET IS SAFE WITH US
+            <br>
+
+            所有諮詢內容遵循保密原則
+        </p>
+        <br><br>
+        <div class="row">
+            <div class="column">
+                <div class="square">
+                    <h3>填寫表單</h3>
+                    <p>點選「我想預約」</p>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="square">
+                    <h3>收到確認信</h3>
+                    <p>確認時間地點可以</p>
+                    <p>提供您的出生時間或問題</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="square">
+                    <h3>愉快赴約</h3>
+                    <p>前三天寄送提醒信</p>
+                    <p>保持睡眠充足</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="square">
+                    <h3>諮詢對話</h3>
+                    <p>收費及填寫回饋表單</p>
+                    <p>感謝您的支持！</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <div style="display: flex;justify-content: center;margin-bottom: 70px;margin-top: 50px;">
+        <a href="./小專表單.html" class="btn">我想預約</a>
+    </div>
+    <div id="footer">
+
+        <p style="padding-top: 10px;">wanyun0118@gmail.com</p>
+        <p>Copyright © 2025 Starmoon Astrology & Tarot. All Rights Reserved.</p>
+
+
+    </div>
+
+
+
+
+
+
+
+</body>
+
+</html>

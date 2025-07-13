@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+  }
+  
+
+  
+  /* Float four columns side by side */
+  .column {
+    flex: 1; /* 讓所有卡片平均分配空間 */
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {
+    display: flex; /* 讓卡片水平排列 */
+    justify-content: space-between; /* 或使用 space-evenly 讓間距平均 */
+    gap: 15px; /* 移除卡片之間的間隔 */
+    padding: 0 120px;
+  }
+  
+  /* Clear floats after the columns
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  } */
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;  /* 讓卡片佔滿父容器 */
+      display: flex;
+      flex-direction: column; /* 讓卡片垂直排列 */
+      align-items: center; /* 讓卡片置中 */
+      
+    }
+  }
+  
+  /* Style the counter cards */
+  .square {
+    box-shadow: 0 4px 8px 0 rgba(90, 88, 88, 0.6);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    text-align: center;
+    height: 250px; /* 設定最小高度，讓卡片變高 */
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 讓內容置中 */
+    align-items: center; /* 讓內容橫向置中 */
+    color: rgb(53, 46, 46);
+    margin: 10px auto; /* 讓卡片在小螢幕時自動置中 */
+    border-radius: 10px;
+  }

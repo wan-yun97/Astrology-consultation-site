@@ -1,0 +1,15 @@
+function readAndShow() {
+            // Retrieve stored values from localStorage and set them to the input fields
+            if (localStorage["userName"]) {
+                document.getElementById("userName").value = localStorage["userName"];
+            }
+            if (localStorage["userPhone"]) {
+                document.getElementById("userPhone").value = localStorage["userPhone"];
+            }
+            if (localStorage["userMail"]) { // Corrected key to "userMail"
+                document.getElementById("userMail").value = localStorage["userMail"];
+            }
+            if (localStorage["explain"]) {
+                document.getElementById("explain").value = localStorage["explain"];
+            }
+        }
